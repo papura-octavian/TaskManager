@@ -1,0 +1,33 @@
+# Build output
+bin/
+obj/
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# IDE - JetBrains Rider
+.idea/
+*.sln.iml
+
+# IDE - Visual Studio
+.vs/
+*.user
+*.suo
+
+# ASP.NET Core
+appsettings.Development.json
+secrets.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# NuGet
+*.nupkg
+.nuget/

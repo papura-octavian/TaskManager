@@ -1,0 +1,43 @@
+@model List<TaskManager.Models.TaskItem>
+
+<div class="container mt-4">
+    <h2>Task-urile mele</h2>
+    <a href="/Tasks/Create" class="btn btn-primary mb-3">+ Task nou</a>
+
+    @if (!Model.Any())
+    {
+        <p class="text-muted">Nu ai niciun task încă.</p>
+    }
+    else
+    {
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Titlu</th>
+                <th>Prioritate</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>Acțiuni</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var task in Model)
+            {
+                <tr>
+                    <td>@task.Title</td>
+                    <td>@task.Priority</td>
+                    <td>@(task.DueDate?.ToString("dd/MM/yyyy") ?? "-")</td>
+                    <td>@(task.IsCompleted ? "✅ Gata" : "⏳ În progres")</td>
+                    <td>
+                        <a href="/Tasks/Delete/@task.Id"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Ștergi task-ul?')">
+                            Șterge
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>

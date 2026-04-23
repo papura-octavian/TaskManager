@@ -1,0 +1,50 @@
+using Microsoft.AspNetCore.Mvc;
+using TaskManager.Models;
+
+namespace TaskManager.Controllers;
+
+public class TasksController : Controller
+{
+    private readonly AppDbContext _context;
+
+    public TasksController(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    // GET: /Tasks
+    public IActionResult Index()
+    {
+        var tasks = _context.Tasks.ToList();
+        return View(tasks);
+    }
+
+    // GET: /Tasks/Create
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    // POST: /Tasks/Create
+    [HttpPost]
+    public IActionResult Create(TaskItem task)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Tasks.Add(task);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(task);
+    }
+
+    // GET: /Tasks/Delete/5
+    public IActionResult Delete(int id)
+    {
+        var task = _context.Tasks.Find(id);
+        if (task == null) return NotFound();
+        _context.Tasks.Remove(task);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
+    }
+}

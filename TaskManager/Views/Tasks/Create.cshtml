@@ -1,0 +1,35 @@
+@model TaskManager.Models.TaskItem
+
+<div class="container mt-4">
+    <h2>Task nou</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Titlu</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Descriere</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Prioritate</label>
+            <select asp-for="Priority" class="form-control">
+                <option>Low</option>
+                <option selected>Normal</option>
+                <option>High</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Deadline</label>
+            <input asp-for="DueDate" type="date" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvează</button>
+        <a href="/Tasks" class="btn btn-secondary">Anulează</a>
+    </form>
+</div>
