@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices.JavaScript;
+using Microsoft.AspNetCore.Identity;
 
 namespace TaskManager.Models;
 
@@ -21,4 +22,8 @@ public class TaskItem
 
     [Required] 
     public string Priority { get; set; } = "Normal"; // Low, Normal, High
+    
+    public string? UserId { get; set; }
+    
+    public IdentityUser? User { get; set; }
 }

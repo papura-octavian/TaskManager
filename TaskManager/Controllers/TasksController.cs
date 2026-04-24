@@ -1,8 +1,12 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using TaskManager.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TaskManager.Controllers;
 
+[Authorize]
 public class TasksController : Controller
 {
     private readonly AppDbContext _context;
@@ -15,7 +19,8 @@ public class TasksController : Controller
     // GET: /Tasks
     public IActionResult Index()
     {
-        var tasks = _context.Tasks.ToList();
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var tasks = _context.Tasks.Where(t => t.UserId == userId).ToList();
         return View(tasks);
     }
 
@@ -31,6 +36,8 @@ public class TasksController : Controller
     {
         if (ModelState.IsValid)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            task.UserId = userId;
             _context.Tasks.Add(task);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -52,6 +59,8 @@ public class TasksController : Controller
     {
         if (ModelState.IsValid)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            task.UserId = userId;
             _context.Tasks.Update(task);
             _context.SaveChanges();
             return RedirectToAction("Index");
