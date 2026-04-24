@@ -79,7 +79,7 @@ dotnet run
 
 ## Planned Features
 
-- [ ] Edit existing tasks
+- [✓] Edit existing tasks
 - [ ] Mark tasks as completed
 - [ ] User authentication (ASP.NET Identity)
 - [ ] Filter by priority / status
