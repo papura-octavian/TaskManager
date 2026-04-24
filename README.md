@@ -22,6 +22,7 @@ A personal task management web application built with **ASP.NET Core MVC** and *
 - User authentication — each user sees only their own tasks
 - Dark mode UI
 - Filter by priority / status
+- Deadline notifications
 
 ---
 
@@ -38,11 +39,6 @@ dotnet run
 ```
 
 App runs at `http://localhost:5055`
-
----
-
-## Planned Features
-- Deadline notifications
 
 ---
 
