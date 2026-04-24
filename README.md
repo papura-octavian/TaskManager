@@ -37,11 +37,3 @@ dotnet restore
 dotnet ef database update
 dotnet run
 ```
-
-App runs at `http://localhost:5055`
-
----
-
-## Author
-
-Built as a learning project for ASP.NET Core MVC.
