@@ -1,23 +1,23 @@
 @model List<TaskManager.Models.TaskItem>
 
 <div class="container mt-4">
-    <h2>Task-urile mele</h2>
-    <a href="/Tasks/Create" class="btn btn-primary mb-3">+ Task nou</a>
+    <h2>My Tasks</h2>
+    <a href="/Tasks/Create" class="btn btn-primary mb-3">+ New Task</a>
 
     @if (!Model.Any())
     {
-        <p class="text-muted">Nu ai niciun task încă.</p>
+        <p class="text-muted">You don't have any task yet</p>
     }
     else
     {
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Titlu</th>
-                <th>Prioritate</th>
+                <th>Title</th>
+                <th>Priority</th>
                 <th>Deadline</th>
                 <th>Status</th>
-                <th>Acțiuni</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -27,12 +27,16 @@
                     <td>@task.Title</td>
                     <td>@task.Priority</td>
                     <td>@(task.DueDate?.ToString("dd/MM/yyyy") ?? "-")</td>
-                    <td>@(task.IsCompleted ? "✅ Gata" : "⏳ În progres")</td>
+                    <td>@(task.IsCompleted ? "✅ Done" : "⏳ In progress...")</td>
                     <td>
+                        <a href="/Tasks/Edit/@task.Id"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
                         <a href="/Tasks/Delete/@task.Id"
                            class="btn btn-danger btn-sm"
-                           onclick="return confirm('Ștergi task-ul?')">
-                            Șterge
+                           onclick="return confirm('Delete task?')">
+                            Delete
                         </a>
                     </td>
                 </tr>

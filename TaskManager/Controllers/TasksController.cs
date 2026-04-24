@@ -37,6 +37,27 @@ public class TasksController : Controller
         }
         return View(task);
     }
+    
+    // GET: /Tasks/Edit
+    public IActionResult Edit(int id)
+    {
+        var task = _context.Tasks.Find(id);
+        if (task == null) return NotFound();
+        return View(task);
+    }
+
+    // POST: /Tasks/Edit 
+    [HttpPost]
+    public IActionResult Edit(TaskItem task)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Tasks.Update(task);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(task);
+    }
 
     // GET: /Tasks/Delete/5
     public IActionResult Delete(int id)

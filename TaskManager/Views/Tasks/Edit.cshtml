@@ -1,14 +1,15 @@
 @model TaskManager.Models.TaskItem
 
 <div class="container mt-4">
-    <h2>NewTask</h2>
+    <h2>Edit Task</h2>
 
     <form method="post">
-        <div class="mb-3">
-            <label>Title</label>
-            <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
+        <input asp-for="Id" type="hidden" />
+            <div class="mb-3">
+                <label>Title</label>
+                <input asp-for="Title" class="form-control"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
 
         <div class="mb-3">
             <label>Description</label>
@@ -16,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <label>Prioritate</label>
+            <label>Priority</label>
             <select asp-for="Priority" class="form-control">
                 <option>Low</option>
                 <option selected>Normal</option>
@@ -26,10 +27,10 @@
 
         <div class="mb-3">
             <label>Deadline</label>
-            <input asp-for="DueDate" type="date" class="form-control" />
+            <input asp-for="DueDate" type="date" class="form-control"/>
         </div>
 
-        <button type="submit" class="btn btn-success">Salvează</button>
-        <a href="/Tasks" class="btn btn-secondary">Anulează</a>
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="/Tasks" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
