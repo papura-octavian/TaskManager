@@ -21,6 +21,7 @@ A personal task management web application built with **ASP.NET Core MVC** and *
 - Mark tasks as completed
 - User authentication — each user sees only their own tasks
 - Dark mode UI
+- Filter by priority / status
 
 ---
 
@@ -41,9 +42,7 @@ App runs at `http://localhost:5055`
 ---
 
 ## Planned Features
-
-- [ ] Filter by priority / status
-- [ ] Deadline notifications
+-> Deadline notifications
 
 ---
 
