@@ -4,6 +4,7 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    @await Component.InvokeAsync("NotificationBadge")
     <li class="nav-item">
         <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Index">My Tasks</a>
     </li>
