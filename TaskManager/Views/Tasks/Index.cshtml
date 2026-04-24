@@ -1,5 +1,14 @@
 @model List<TaskManager.Models.TaskItem>
 
+<div class="mb-3">
+    <a href="/Tasks" class="btn btn-secondary btn-sm">All</a>
+    <a href="/Tasks?priority=Low" class="btn btn-success btn-sm">Low</a>
+    <a href="/Tasks?priority=Normal" class="btn btn-warning btn-sm">Normal</a>
+    <a href="/Tasks?priority=High" class="btn btn-danger btn-sm">High</a>
+    <a href="/Tasks?status=completed" class="btn btn-primary btn-sm">Completed</a>
+    <a href="/Tasks?status=inprogress" class="btn btn-outline-secondary btn-sm">In Progress</a>
+</div>
+
 <div class="container mt-4">
     <h2>My Tasks</h2>
     <a href="/Tasks/Create" class="btn btn-primary mb-3">+ New Task</a>

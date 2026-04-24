@@ -16,11 +16,27 @@ public class TasksController : Controller
     }
 
     // GET: /Tasks
-    public IActionResult Index()
+    public IActionResult Index(string? priority = null, string? status = null)
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var tasks = _context.Tasks.Where(t => t.UserId == userId).ToList();
-        return View(tasks);
+        var tasks = _context.Tasks.Where(t => t.UserId == userId);
+
+        if (priority != null)
+        {
+            tasks = tasks.Where(t => t.Priority == priority);
+        }
+
+        if (status == "completed")
+        {
+            tasks = tasks.Where(t => t.IsCompleted == true);
+        }
+        
+        if (status == "inprogress")
+        {
+            tasks = tasks.Where(t => t.IsCompleted == false);
+        }
+        
+        return View(tasks.ToList());
     }
 
     // GET: /Tasks/Create
