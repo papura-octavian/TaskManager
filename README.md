@@ -1,4 +1,4 @@
-# 📋 TaskManager
+# TaskManager
 
 A personal task management web application built with **ASP.NET Core MVC** and **Entity Framework Core**.
 
@@ -6,82 +6,42 @@ A personal task management web application built with **ASP.NET Core MVC** and *
 
 ## Tech Stack
 
-- **ASP.NET Core 8.0** — web framework
-- **MVC (Model-View-Controller)** — application architecture
-- **Entity Framework Core 8.0** — database ORM
-- **SQLite** — local database
-- **Razor Views** — UI template engine
-- **Bootstrap 5** — UI styling
-- **JetBrains Rider** — IDE (developed on Linux)
+- ASP.NET Core 8.0
+- Entity Framework Core 8.0 with SQLite
+- ASP.NET Identity — authentication
+- Razor Views + Bootstrap 5
+- Developed with JetBrains Rider on Linux
 
 ---
 
 ## Features
 
-- ✅ Create new tasks with title, description, priority and deadline
-- ✅ View all tasks in a list
-- ✅ Delete tasks
-- ✅ Task statuses: In Progress / Done
-- ✅ Priority levels: Low / Normal / High
-- ✅ Data persistence with SQLite
+- Create, edit and delete tasks
+- Set priority (Low / Normal / High) and deadline
+- Mark tasks as completed
+- User authentication — each user sees only their own tasks
+- Dark mode UI
 
 ---
 
-## 📁 Project Structure
+## Getting Started
 
-```
-TaskManager/
-├── Controllers/
-│   ├── HomeController.cs       # Home page logic
-│   └── TasksController.cs      # CRUD logic for tasks
-├── Models/
-│   ├── TaskItem.cs             # Task model
-│   └── AppDbContext.cs         # Database context
-├── Views/
-│   ├── Shared/
-│   │   └── _Layout.cshtml      # Shared layout
-│   ├── Home/
-│   │   └── Index.cshtml        # Home page
-│   └── Tasks/
-│       ├── Index.cshtml        # Task list
-│       └── Create.cshtml       # Create task form
-├── Migrations/                 # Entity Framework migrations
-├── wwwroot/                    # Static files (CSS, JS)
-├── appsettings.json            # App configuration
-├── Program.cs                  # Application entry point
-└── taskmanager.db              # SQLite database file
-```
-
----
-
-## ⚙️ Getting Started
-
-### Prerequisites
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-
-### Installation
+**Prerequisites:** .NET 8.0 SDK
 
 ```bash
-# Clone the repository
 git clone https://github.com/papura-octavian/TaskManager.git
 cd TaskManager/TaskManager
-
-# Restore dependencies
 dotnet restore
-
-# Apply database migrations
 dotnet ef database update
-
-# Run the application
 dotnet run
 ```
+
+App runs at `http://localhost:5055`
+
 ---
 
 ## Planned Features
 
-- [✓] Edit existing tasks
-- [✓] Mark tasks as completed
-- [✓] User authentication (ASP.NET Identity)
 - [ ] Filter by priority / status
 - [ ] Deadline notifications
 
