@@ -42,7 +42,7 @@ App runs at `http://localhost:5055`
 ---
 
 ## Planned Features
--> Deadline notifications
+- Deadline notifications
 
 ---
 
