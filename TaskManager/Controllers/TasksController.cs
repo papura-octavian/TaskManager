@@ -58,6 +58,16 @@ public class TasksController : Controller
         }
         return View(task);
     }
+    
+    // GET: /Tasks/Complete
+    public IActionResult Complete(int id)
+    {
+        var task = _context.Tasks.Find(id);
+        if (task == null) return NotFound();
+        task.IsCompleted = true;
+        _context.SaveChanges();
+        return RedirectToAction("Index");
+    }
 
     // GET: /Tasks/Delete/5
     public IActionResult Delete(int id)

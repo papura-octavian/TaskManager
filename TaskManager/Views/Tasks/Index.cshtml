@@ -29,6 +29,10 @@
                     <td>@(task.DueDate?.ToString("dd/MM/yyyy") ?? "-")</td>
                     <td>@(task.IsCompleted ? "✅ Done" : "⏳ In progress...")</td>
                     <td>
+                        <a href="/Tasks/Complete/@task.Id"
+                           class="btn btn-success btn-sm">
+                            Complete
+                        </a>
                         <a href="/Tasks/Edit/@task.Id"
                            class="btn btn-warning btn-sm">
                             Edit
